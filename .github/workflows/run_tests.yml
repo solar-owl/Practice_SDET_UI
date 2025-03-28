@@ -1,18 +1,6 @@
 name: Automated tests
 
-on:
-  workflow_dispatch:
-    inputs:
-      deployment_target:
-        description: Run UI tests for checking works with customer
-        required: true
-        default: all_tests
-        type: choice
-        options:
-          - test_add_new_customer
-          - test_sort_customers_by_name
-          - test_delete_customer
-          - all_tests
+on:  push
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -30,15 +18,5 @@ jobs:
         run: sudo apt-get install firefox
       - name: install dependencies
         run: pip install -r requirements.txt
-      - name: test_add_new_customer
-        if: "github.event.inputs.deployment_target == 'test_add_new_customer'"
-        run: pytest tests/test_run.py::test_delete_customer
-      - name: test_sort_customers_by_name
-        if: "github.event.inputs.deployment_target == 'test_sort_customers_by_name'"
-        run: pytest tests/test_run.py::test_sort_customers_by_name
-      - name: test_delete_customer
-        if: "github.event.inputs.deployment_target == 'test_delete_customer'"
-        run: pytest tests/test_run.py::test_delete_customer
-      - name: all_tests
-        if: "github.event.inputs.deployment_target == 'all_tests'"
+      - name: Run tests
         run: pytest
