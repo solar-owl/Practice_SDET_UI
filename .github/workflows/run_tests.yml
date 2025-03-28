@@ -6,13 +6,13 @@ on:
       deployment_target:
         description: Run UI tests for checking works with customer
         required: true
-        default: all_tests
-        type: choice
-        options:
-          - test_add_new_customer
-          - test_sort_customers_by_name
-          - test_delete_customer
-          - all_tests
+#        default: all_tests
+#        type: choice
+#        options:
+#          - test_add_new_customer
+#          - test_sort_customers_by_name
+#          - test_delete_customer
+#          - all_tests
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -28,15 +28,17 @@ jobs:
         run: sudo apt-get install google-chrome-stable
       - name: install dependencies
         run: pip install -r requirements.txt
-      - name: test_add_new_customer
-        if: "github.event.inputs.deployment_target == 'test_add_new_customer'"
-        run: pytest tests/test_run.py::test_delete_customer
-      - name: test_sort_customers_by_name
-        if: "github.event.inputs.deployment_target == 'test_sort_customers_by_name'"
-        run: pytest tests/test_run.py::test_sort_customers_by_name
-      - name: test_delete_customer
-        if: "github.event.inputs.deployment_target == 'test_delete_customer'"
-        run: pytest tests/test_run.py::test_delete_customer
-      - name: all_tests
-        if: "github.event.inputs.deployment_target == 'all_tests'"
+      - name: Run tests
         run: pytest
+#      - name: test_add_new_customer
+#        if: "github.event.inputs.deployment_target == 'test_add_new_customer'"
+#        run: pytest tests/test_run.py::test_delete_customer
+#      - name: test_sort_customers_by_name
+#        if: "github.event.inputs.deployment_target == 'test_sort_customers_by_name'"
+#        run: pytest tests/test_run.py::test_sort_customers_by_name
+#      - name: test_delete_customer
+#        if: "github.event.inputs.deployment_target == 'test_delete_customer'"
+#        run: pytest tests/test_run.py::test_delete_customer
+#      - name: all_tests
+#        if: "github.event.inputs.deployment_target == 'all_tests'"
+#        run: pytest
