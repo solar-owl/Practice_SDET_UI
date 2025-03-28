@@ -14,8 +14,8 @@ jobs:
           python-version: "3.10"
       - name: Install Chrome
         run: sudo apt-get install google-chrome-stable
-      - name: Install Firefox
-        run: sudo apt-get install firefox geckodriver
+#      - name: Install Firefox
+#        run: sudo apt-get install firefox geckodriver
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run tests
