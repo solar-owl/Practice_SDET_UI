@@ -15,8 +15,8 @@ jobs:
       - name: Install Chrome
         run: sudo apt-get install google-chrome-stable
       - name: Install Firefox
-        run: sudo apt-get install firefox
-      - name: install dependencies
+        run: sudo apt-get install firefox-geckodriver
+      - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run tests
         run: pytest
