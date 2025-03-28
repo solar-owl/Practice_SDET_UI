@@ -13,11 +13,11 @@ class CustomersPage(BasePage):
         super().__init__(driver)
 
     def sort_by_first_name(self):
-        self.find_element(*TITLE_FIRST_NAME).click()
+        self.search_element(*TITLE_FIRST_NAME).click()
 
     def get_list_of_first_names(self):
         first_names_values = []
-        elements = self.find_elements(*LIST_FIRST_NAMES)
+        elements = self.search_elements(*LIST_FIRST_NAMES)
         for row in elements:
             first_names_values.append(row.text)
         with allure.step('Получение имен из таблицы Customers'):

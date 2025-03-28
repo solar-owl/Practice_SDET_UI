@@ -15,15 +15,15 @@ class AddCustomerPage(BasePage):
 
     def fill_first_name(self, first_name: str):
         with allure.step('Ввод имени в поле First Name'):
-            self.find_element(*FIRST_NAME_INPUT).send_keys(first_name)
+            self.search_element(*FIRST_NAME_INPUT).send_keys(first_name)
 
     def fill_last_name(self, last_name: str):
         with allure.step('Ввод фамилии в поле Last Name'):
-            self.find_element(*LAST_NAME_INPUT).send_keys(last_name)
+            self.search_element(*LAST_NAME_INPUT).send_keys(last_name)
 
     def fill_post_code(self, postCode: str):
         with allure.step('Ввод номера в поле Post Code'):
-            self.find_element(*POST_CODE_INPUT).send_keys(postCode)
+            self.search_element(*POST_CODE_INPUT).send_keys(postCode)
 
     def click_add_customer_btn(self):
         with allure.step('Нажатие на кнопку Add Customer'):
