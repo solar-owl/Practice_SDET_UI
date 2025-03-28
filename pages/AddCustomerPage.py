@@ -1,6 +1,5 @@
 import allure
 from selenium.webdriver.support import expected_conditions
-
 from pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 

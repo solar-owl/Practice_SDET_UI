@@ -1,0 +1,44 @@
+name: Automated tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Run UI tests for checking works with customer
+        required: true
+        default:
+        type: choice
+        options:
+          - test_add_new_customer
+          - test_sort_customers_by_name
+          - test_delete_customer
+          - all_tests
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install Chrome
+        run: sudo apt-get install google-chrome-stable
+      - name: Install Firefox
+        run: sudo apt-get install firefox
+      - name: install dependencies
+        run: pip install -r requirements.txt
+      - name: test_add_new_customer
+        if: "github.event.inputs.deployment_target == 'test_add_new_customer'"
+        run: pytest tests/test_run.py::test_delete_customer
+      - name: test_sort_customers_by_name
+        if: "github.event.inputs.deployment_target == 'test_sort_customers_by_name'"
+        run: pytest tests/test_run.py::test_sort_customers_by_name
+      - name: test_delete_customer
+        if: "github.event.inputs.deployment_target == 'test_delete_customer'"
+        run: pytest tests/test_run.py::test_delete_customer
+      - name: all_tests
+        if: "github.event.inputs.deployment_target == 'all_tests'"
+        run: pytest -n 3
