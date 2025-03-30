@@ -46,6 +46,8 @@ jobs:
       - name: all_tests
         if: "github.event.inputs.deployment_target == 'all_tests'"
         run: pytest --alluredir=allure-results
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
       - name: Store allure result
         uses: actions/upload-artifact@v3
         with:
