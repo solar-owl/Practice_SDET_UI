@@ -17,6 +17,12 @@ on:
           - test_sort_customers_by_name
           - test_delete_customer
           - all_tests
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  
 jobs:
   test:
     runs-on: ubuntu-latest
