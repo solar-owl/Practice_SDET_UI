@@ -60,7 +60,7 @@ jobs:
           -o pages
       - run: mkdir allure-results && unzip artifacts allure-results -d allure-results
       - run: mkdir old_pages pages_history&& unzip artifacts pages -d old_pages && tar -xvf old_pages/artifact.tar -C pages_history
-      - run: cp pages_history/history/* allure-results && pages_history/history allure-results
+      - run: cp pages_history/history/* allure-results && cp -r pages_history/history allure-results
       - name: Store allure history
         uses: actions/upload-artifact@v4
         with:
