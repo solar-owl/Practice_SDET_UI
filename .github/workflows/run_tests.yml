@@ -60,6 +60,7 @@ jobs:
           -o pages
       - run: mkdir allure-results && mv artifacts allure-results
       - run: mkdir old_pages pages_history&& mv pages old_pages
+      - run: cd old_pages
       - run: ls -la
       - run: cp pages_history/history/* allure-results && cp -r pages_history/history allure-results
       - name: Store allure history
