@@ -44,3 +44,6 @@ allure serve reports
 2. Нажать **Run workflow**
 3. В окне в выпадающем списке выбрать тест, который нужно запустить, или все (автоматически выбран запуск всех автотестов)
 4. Нажать на кнопку **Run workflow**
+
+## Allure Reports
+Allure отчеты дочтупны по ссылке: https://solar-owl.github.io/Practice_SDET_UI/
