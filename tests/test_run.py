@@ -5,7 +5,7 @@
 """
 import allure
 import pytest
-from data.generate_test_data import ALERT_MESSAGE
+from data.data import ALERT_MESSAGE
 from data.generate_test_data import generate_new_customer_test_data
 from helpers.transformations import get_names_after_delete
 from helpers.transformations import get_names_for_delete

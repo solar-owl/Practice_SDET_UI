@@ -5,7 +5,7 @@
 """
 from selenium.webdriver.common.by import By
 import allure
-from data.generate_test_data import ADD_CUST_URL, CUSTOMERS_URL
+from data.data import ADD_CUST_URL, CUSTOMERS_URL
 from pages.BasePage import BasePage
 
 ADD_CUSTOMER_TAB = (

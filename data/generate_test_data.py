@@ -5,11 +5,8 @@
 """
 
 import random
-
-GENERAL_URL = 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager'
-ADD_CUST_URL = 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager/addCust'
-CUSTOMERS_URL = 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager/list'
-ALERT_MESSAGE = 'Customer added successfully with customer id'
+from faker import Faker
+from helpers.str_helper import get_two_digit_numbers
 
 
 def generate_post_code() -> str:
@@ -20,17 +17,6 @@ def generate_post_code() -> str:
     number_list = [random.randint(0, 9) for _ in range(10)]
     number = ''.join(map(str, number_list))
     return number
-
-
-def get_two_digit_numbers(post_code: str) -> [int]:
-    """
-    Делит строку с номером на двухзначные числа.
-    :param post_code: Номер в виде строки.
-    :return: Список из двухзначных чисел.
-    """
-    two_digit_numbers = [int(post_code[i:i + 2])
-                         for i in range(0, len(post_code), 2)]
-    return two_digit_numbers
 
 
 def generate_first_name(post_code: str) -> str:
@@ -49,15 +35,11 @@ def generate_first_name(post_code: str) -> str:
 
 def generate_last_name(post_code: str) -> str:
     """
-    Генерация фамилии на основе Post Code. Каждое двузначное
-    число из номера преобразовывается в букву английского алфавита в обратном порядке.
-    :param post_code: Номер в виде строки.
+    Генерация фамилии.
     :return: Фамилия.
     """
-    two_digit_numbers = get_two_digit_numbers(post_code)
-    last_name = ''
-    for number in two_digit_numbers:
-        last_name += chr(ord('z') - (number % 26))
+    fake = Faker('en_US')
+    last_name = fake.last_name()
     return last_name
 
 

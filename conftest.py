@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 import pytest
-from data.generate_test_data import GENERAL_URL, CUSTOMERS_URL
+from data.data import GENERAL_URL, CUSTOMERS_URL
 from pages.AddCustomerPage import AddCustomerPage
 from pages.CustomersPage import CustomersPage
 from pages.GeneralPage import GeneralPage
