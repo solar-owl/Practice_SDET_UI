@@ -71,7 +71,7 @@ jobs:
       - run: mkdir allure-results && unzip artifacts.zip -d allure-results
       - run: ls -la allure-results/artifacts
       - run: cat allure-results/artifacts
-      - run: 7z x artifacts.zip -oallure-results
+      - run: 7z x artifacts.zip -oallure-results -y
       - run: ls -la allure-results/artifacts
       - run: cat allure-results/artifacts
       - run: ls -la
