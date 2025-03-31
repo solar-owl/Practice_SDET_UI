@@ -65,7 +65,7 @@ jobs:
           https://api.github.com/repos/solar-owl/Practice_SDET_UI/actions/artifacts/$REPORT_ID/zip 
           -o pages.zip
       - name: Install unzip
-        run: sudo apt-get install -y unzip
+      - run: sudo apt-get install -y unzip
       - name: Install 7-Zip
       - run: sudo apt-get install -y p7zip-full
       - run: mkdir allure-results && unzip artifacts.zip -d allure-results
