@@ -63,8 +63,8 @@ jobs:
       - run: sudo apt-get install -y unzip
       - name: Install 7-Zip
         run: sudo apt-get install -y p7zip-full
-      - run: mkdir allure-results && unzip artifacts.zip -d allure-results
-      - run: ls -la allure-results/artifacts
+      - run: mkdir allure-results && unzip artifacts -d allure-results
+      - run: ls -la allure-results
       - run: cat allure-results/artifacts
       - run: 7z x artifacts.zip -oallure-results -y
       - run: ls -la allure-results
