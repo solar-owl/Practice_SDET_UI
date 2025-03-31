@@ -64,11 +64,12 @@ jobs:
           -H "X-GitHub-Api-Version: 2022-11-28"
           https://api.github.com/repos/solar-owl/Practice_SDET_UI/actions/artifacts/$REPORT_ID/zip 
           -o pages.zip
-      - run: ls -la
-      - run: file artifacts.zip
       - name: Install unzip
         run: sudo apt-get install -y unzip
       - run: mkdir allure-results && unzip artifacts.zip -d allure-results
+      - run: ls -la allure-results/artifacts
+      - run: cat artifact 
+      - run: ls -la
       - run: mkdir old_pages pages_history&& unzip pages.zip -d old_pages && tar -xvf old_pages/artifact.tar -C pages_history
       - run: cp pages_history/history/* allure-results && cp -r pages_history/history allure-results
       - name: Store allure history
