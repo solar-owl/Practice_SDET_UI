@@ -118,6 +118,3 @@ def test_delete_customer(general_page, customers_page):
     new_name_list = customers_page.get_list_of_first_names()
     with allure.step('Проверка, что клиенты удалены из таблицы'):
         assert res_names == new_name_list, f"Клиенты {del_names} не удалены"
-
-def failed_test():
-    assert 1 == 2
