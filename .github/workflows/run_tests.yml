@@ -72,7 +72,7 @@ jobs:
       - run: ls -la allure-results/artifacts
       - run: cat allure-results/artifacts
       - run: 7z x artifacts.zip -oallure-results -y
-      - run: ls -la allure-results/artifacts
+      - run: ls -la allure-results
       - run: cat allure-results/artifacts
       - run: ls -la
       - run: mkdir old_pages pages_history&& unzip pages.zip -d old_pages && tar -xvf old_pages/artifact.tar -C pages_history
