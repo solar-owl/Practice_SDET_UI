@@ -66,6 +66,8 @@ jobs:
           -o pages.zip
       - run: ls -la
       - run: file artifacts.zip
+      - name: Install unzip
+        run: sudo apt-get install -y unzip
       - run: mkdir allure-results && unzip artifacts.zip -d allure-results
       - run: mkdir old_pages pages_history&& unzip pages.zip -d old_pages && tar -xvf old_pages/artifact.tar -C pages_history
       - run: cp pages_history/history/* allure-results && cp -r pages_history/history allure-results
